@@ -11,15 +11,18 @@ class Block(object):
         self.__margin = Margin()
         self.__bounds = Rectangle()
         self.__children = []
-
         assert isinstance(parent, [Block, None])
         if parent:
             parent.add_child(self)
         self.__parent = parent
 
-    def add_child(self, block):
+    def _accept_child(self, block):
         assert isinstance(block, Block)
-        pass
+        return False
+
+    def add_child(self, block):
+        if self._accept_child(block):
+            pass
 
     def remove_child(self, block):
         assert isinstance(block, Block)
