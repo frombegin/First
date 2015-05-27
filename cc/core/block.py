@@ -11,7 +11,7 @@ class Block(object):
         self.__margin = Margin()
         self.__bounds = Rectangle()
         self.__children = []
-        assert isinstance(parent, [Block, None])
+        assert isinstance(parent, (Block, None))
         if parent:
             parent.add_child(self)
         self.__parent = parent

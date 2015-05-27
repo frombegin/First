@@ -1,12 +1,13 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+
 class Session(object):
     def __init__(self):
         super(Session, self).__init__()
         self.__id = None
 
-    def is_anoymous(self):
+    def is_anonymous(self):
         return self.__id is None
 
     def login(self, identify, password):
@@ -28,4 +29,6 @@ class Session(object):
 
     def search(self, query):
         pass
+
+
 
