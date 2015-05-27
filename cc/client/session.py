@@ -30,5 +30,9 @@ class Session(object):
     def search(self, query):
         pass
 
+    def upload(self, book):
+        pass
 
+    def download(self, book):
+        pass
 
