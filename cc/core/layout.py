@@ -6,7 +6,7 @@ from core.block import Block
 
 class Layout(Block):
 
-    def _relayout(self):
+    def _rearrange(self):
         raise NotImplementedError()
 
 
