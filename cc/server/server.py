@@ -16,7 +16,7 @@ engine = create_engine('mysql+mysqlconnector://root@localhost/my', echo=True)
 
 metadata = MetaData()
 users = Table('users', metadata,
-              Column('id', Integer, primary_key=True),
+              Column('id', Integer, primary_key=True, doc = u'这是主键!'),
               Column('name', String(32)),
               Column('fullname', String(128)),
               )
@@ -26,9 +26,16 @@ addresses = Table('addresses', metadata,
                   Column('user_id', None, ForeignKey('users.id')),
                   Column('email_address', String(128), nullable=False))
 
+metadata.drop_all(engine)
+print '-' * 80
 metadata.create_all(engine)
-
-
+print '-' * 80
+for tab in metadata.sorted_tables:
+    print tab
+print '-' * 80
+for tab in metadata.tables:
+    print tab
+print '-' * 80
 
 class JsonProtocol(Int32StringReceiver):
     def stringReceived(self, string):
